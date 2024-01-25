@@ -395,6 +395,7 @@ class MSVCCompiler(CCompiler):
             output_dir, macros, include_dirs, sources, depends, extra_postargs
         )
         macros, objects, extra_postargs, pp_opts, build = compile_info
+        import pprint; pprint.pprint(('DEBUG: after compile_info()', locals()))
 
         compile_opts = extra_preargs or []
         compile_opts.append('/c')

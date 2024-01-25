@@ -80,6 +80,7 @@ class build_clib(orig.build_clib):
                 output_dir=self.build_temp,
             )
 
+            import pprint; pprint.pprint(('DEBUG: before compile()', locals()))
             if newer_pairwise_group(dependencies, expected_objects) != ([], []):
                 # First, compile the source code to object files in the library
                 # directory.  (This should probably change to putting object
@@ -99,6 +100,7 @@ class build_clib(orig.build_clib):
             # Now "link" the object files together into a static library.
             # (On Unix at least, this isn't really linking -- it just
             # builds an archive.  Whatever.)
+            import pprint; pprint.pprint(('DEBUG: before create_static_lib()', locals()))
             self.compiler.create_static_lib(
                 expected_objects, lib_name, output_dir=self.build_clib, debug=self.debug
             )
